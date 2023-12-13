@@ -1,0 +1,16 @@
+<form action="?" method="post">
+  <input type="color" name="reng" required>
+  <input type="submit" name="btn">
+</form>
+<?php
+if(isset($_POST['btn'])){
+  if(!isset($_POST['reng'])){
+    echo "inputlar bosdur";
+    //inputlarda required atributu istifade olunsa da, yene de yoxlanilmalidir
+  }
+  else{
+    $reng=$_POST['reng']; //postdan gelen inputlar alinir
+    echo $reng;
+
+  }
+}
