@@ -1,0 +1,17 @@
+<form action="?" method="post">
+  <input type="text" name="username" required>
+  <input type="password" name="password" required>
+  <input type="submit" name="btn">
+</form>
+<?php
+if(isset($_POST['btn'])){
+  if(!isset($_POST['username']) or !isset($_POST['password'])){
+    echo "inputlar bosdur";
+    //inputlarda required atributu istifade olunsa da, yene de yoxlanilmalidir
+  }
+  else{
+    setcookie("username",$_POST['username'],10*60*60);
+    setcookie("password",$_POST['password'],10*60*60);
+  }
+}
+?>
