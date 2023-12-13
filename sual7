@@ -1,0 +1,8 @@
+<?php
+$faylinadi='text.php';
+$faylinozu=fopen($faylinadi,"a+"); //a+ modlardi burada var-> "https://www.w3schools.com/php/php_file_open.asp";
+if(fwrite($faylinozu, "metn elave edildi")){
+  /////elave-> ugurlu olub olmadigini gorek deye
+  readfile($faylinadi);//fayli adice oxuyaq
+}
+?>
