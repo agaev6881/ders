@@ -1,0 +1,36 @@
+<!-- 4. $adminEmail = someone@mail.ru; $adminParol = '12345';
+adli iki deyisenimiz var, formdan daxil olan email ve parolun, bu
+email ve parolla ust uste dusmesini yoxlayin. Eyni olarsa ekrana
+“ugurlu”, ferqli olarsa, “yanlis” yazisi cixsin. -->
+<!-- form.html -->
+<!-- Form-larda selectden gelen datanin PHP-de goturulmesine aid numune yazin -->
+<form action="?" method="post">
+  <input type="email" name="mail" required>
+  <input type="password" name="parol" required>
+  <input type="submit" name="btn">
+</form>
+<!-- form.php -->
+<?php
+if(isset($_POST['btn'])){
+  if(!isset($_POST['mail']) or !isset($_POST['parol'])){
+    echo "inputlar bosdur";
+    //inputlarda required atributu istifade olunsa da, yene de yoxlanilmalidir
+  }
+  else{
+    $mail=$_POST['mail']; //postdan gelen inputlar alinir
+    $parol=$_POST['parol'];
+    //bu 4 setir vacib deyil amma yazmaq yaxsi olar
+    $mail=strip_tags($mail); //taglar silinir
+    $parol=strip_tags($parol);
+    $mail=htmlspecialchars($mail); //html taglari decode olunur ki o html tegleri kimi oxunmasin
+    $parol=htmlspecialchars($parol);
+    ///////////yoxlayaq
+    echo $parol." ve ".$mail." ";
+    if($mail==='someone@mail.ru' and $parol==='12345'){
+      echo "melumatlar ust-uste dusur";
+    }
+    else{
+      echo "melumatlar ust-uste dusmur";
+    }
+  }
+}
