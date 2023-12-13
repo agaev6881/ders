@@ -1,0 +1,6 @@
+<?php
+$faylinadi='text.php';
+$faylinozu=fopen($faylinadi,"r+");
+echo fgets($faylinozu);
+
+?>
