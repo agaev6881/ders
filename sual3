@@ -1,0 +1,21 @@
+<!-- Form-larda type-si checkbox olan inputlardan gelen datanin -->
+<!-- PHP-de goturulmesine aid numune yazin -->
+<form action="?" method="post">
+  <label>tesdiqlensin?</label>
+  <label>beli</label>
+  <input type="radio" name="input" value="beli" required>
+  <label>xeyr</label>
+  <input type="radio" name="input" value="xeyr" required>
+  <input type="submit" name="btn">
+</form>
+<?php
+if(isset($_POST['btn'])){
+  if(!isset($_POST['input'])){
+    echo "input bosdur";
+    //inputlarda required atributu istifade olunsa da, yene de yoxlanilmalidir
+  }
+  else{
+    $input=$_POST['input']; //postdan gelen inputlar alinir
+    echo "input->".$input;
+  }
+}
