@@ -1,0 +1,6 @@
+<?php
+$faylinadi='text.php';
+$faylinozu=fopen($faylinadi,"a+");
+echo fread($faylinozu,1);
+
+?>
