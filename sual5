@@ -1,0 +1,24 @@
+<form action="?" method="post">
+  <input type="text" name="inputumuz" required>
+  <input type="submit" name="btn">
+</form>
+<?php
+function validate($deyisen)
+{
+    $deyisen=trim($deyisen);// bosluqlari, /n /t kimi acar sozlerdi sehv elemiremse adi, onlari silir
+      $deyisen=strip_tags($deyisen); //taglar silinir
+    $deyisen=htmlspecialchars($deyisen); //html taglari decode olunur ki o html tegleri kimi oxunmasin
+    return $deyisen;
+}
+if(isset($_POST['btn'])){
+  if(!isset($_POST['inputumuz'])){
+    echo "inputlar bosdur";
+    //inputlarda required atributu istifade olunsa da, yene de yoxlanilmalidir
+  }
+  else{
+    $inputumuz=$_POST['inputumuz']; //postdan gelen inputlar alinir
+    $inputumuz=validate($inputumuz);//hemin funksiyaya gonderek inputumuzu yoxlayib geri atsin
+    echo $inputumuz;
+
+  }
+}
