@@ -1,0 +1,11 @@
+<?php
+$faylinadi='text.php';
+if(file_exists($faylinadi)){
+  echo "fayl movcuddur";
+}
+else{
+    $faylinozu=fopen($faylinadi,"a+"); //fayl modlardi burada var-> "https://www.w3schools.com/php/php_file_open.asp";
+    fwrite($faylinozu, "metn elave edildi");
+}
+
+?>
