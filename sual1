@@ -1,0 +1,28 @@
+<!-- form.html -->
+<!-- Form-larda selectden gelen datanin PHP-de goturulmesine aid numune yazin -->
+<form action="form.php" method="post">
+	<input type="text" name="input1" required>
+	<input type="text" name="input2" required>
+	<input type="submit" name="btn">
+</form>
+<!-- form.php -->
+<?php
+if(isset($_POST['btn'])){
+	if(!isset($_POST['input1']) or !isset($_POST['input2'])){
+		echo "inputlar bosdur";
+		//inputlarda required atributu istifade olunsa da, yene de yoxlanilmalidir
+	}
+	else{
+		$input1=$_POST['input1']; //postdan gelen inputlar alinir
+		$input2=$_POST['input2'];
+		//bu 4 setir vacib deyil amma yazmaq yaxsi olar
+		$input1=strip_tags($input1); //taglar silinir
+		$input2=strip_tags($input2);
+		$input1=htmlspecialchars($input1); //html taglari decode olunur ki o html tegleri kimi oxunmasin
+		$input2=htmlspecialchars($input2);
+		///////////
+		echo "input1->".$input1;
+		echo "<br>";
+		echo "input2->".$input2;
+	}
+}
